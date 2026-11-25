@@ -1,0 +1,24 @@
+{
+  "waves": [
+    { "waveNumber": 1, "enemyCount": 5, "enemyHealth": 100, "rewardGold": 25, "spawnInterval": 1.2 },
+    { "waveNumber": 2, "enemyCount": 6, "enemyHealth": 145, "rewardGold": 25, "spawnInterval": 1.17 },
+    { "waveNumber": 3, "enemyCount": 7, "enemyHealth": 190, "rewardGold": 25, "spawnInterval": 1.14 },
+    { "waveNumber": 4, "enemyCount": 8, "enemyHealth": 235, "rewardGold": 25, "spawnInterval": 1.11 },
+    { "waveNumber": 5, "enemyCount": 9, "enemyHealth": 280, "rewardGold": 25, "spawnInterval": 1.08 },
+    { "waveNumber": 6, "enemyCount": 10, "enemyHealth": 325, "rewardGold": 25, "spawnInterval": 1.05 },
+    { "waveNumber": 7, "enemyCount": 11, "enemyHealth": 370, "rewardGold": 25, "spawnInterval": 1.02 },
+    { "waveNumber": 8, "enemyCount": 12, "enemyHealth": 415, "rewardGold": 25, "spawnInterval": 0.99 },
+    { "waveNumber": 9, "enemyCount": 13, "enemyHealth": 460, "rewardGold": 25, "spawnInterval": 0.96 },
+    { "waveNumber": 10, "enemyCount": 14, "enemyHealth": 505, "rewardGold": 25, "spawnInterval": 0.93 },
+    { "waveNumber": 11, "enemyCount": 15, "enemyHealth": 550, "rewardGold": 25, "spawnInterval": 0.9 },
+    { "waveNumber": 12, "enemyCount": 16, "enemyHealth": 595, "rewardGold": 25, "spawnInterval": 0.87 },
+    { "waveNumber": 13, "enemyCount": 17, "enemyHealth": 640, "rewardGold": 25, "spawnInterval": 0.84 },
+    { "waveNumber": 14, "enemyCount": 18, "enemyHealth": 685, "rewardGold": 25, "spawnInterval": 0.81 },
+    { "waveNumber": 15, "enemyCount": 19, "enemyHealth": 730, "rewardGold": 25, "spawnInterval": 0.78 },
+    { "waveNumber": 16, "enemyCount": 20, "enemyHealth": 775, "rewardGold": 25, "spawnInterval": 0.75 },
+    { "waveNumber": 17, "enemyCount": 21, "enemyHealth": 820, "rewardGold": 25, "spawnInterval": 0.72 },
+    { "waveNumber": 18, "enemyCount": 22, "enemyHealth": 865, "rewardGold": 25, "spawnInterval": 0.69 },
+    { "waveNumber": 19, "enemyCount": 23, "enemyHealth": 910, "rewardGold": 25, "spawnInterval": 0.66 },
+    { "waveNumber": 20, "enemyCount": 24, "enemyHealth": 955, "rewardGold": 25, "spawnInterval": 0.63 }
+  ]
+}
