@@ -20,8 +20,13 @@ namespace TowerDefense.Domain
                 target.TakeDamage(damage);
             }
 
-            // Kiểm tra đa hình qua interface ISlowable 
-            if (target.IsAlive && target is ISlowable slowable)
+            // Chỉ làm chậm nếu mục tiêu vẫn sống sau khi nhận sát thương.
+            // target trỏ tới EnemyHealth; tìm component thực hiện ISlowable
+            // trên cùng GameObject để tương thích với EnemyMovement của Phú.
+            if (target.IsAlive &&
+                target is Component targetComponent &&
+                targetComponent != null &&
+                targetComponent.TryGetComponent<ISlowable>(out var slowable))
             {
                 slowable.ApplySlow(slowPercent, slowDuration);
             }
