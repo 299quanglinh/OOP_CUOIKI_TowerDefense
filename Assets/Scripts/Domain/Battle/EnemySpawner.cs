@@ -14,7 +14,7 @@ namespace TowerDefense.Domain.Battle
 
         public event Action<int, int> OnWaveChanged; // Thay đổi wave
         public event Action<int> OnCountdownTick; // Đếm ngược khi bắt đầu đợt
-        public event Action OnCountdownFinished; // Hết đếm ngược
+        public event Action OnCountdownFinished; // Kết thúc đếm ngược
         public event Action OnAllWavesCompleted; // Phát thông báo chiến thắng
 
         [Header("Cấu hình Quái & Tuyến đường")]
