@@ -177,5 +177,24 @@ namespace TowerDefense.Tests.EditMode
             Assert.AreEqual(2, triggerCount);
             Assert.IsFalse(lastState);
         }
+
+        // UT_08: Hai quái trong tầm có cùng máu thì chọn con gần tháp hơn.
+        [Test]
+        public void UT08_LowestHealthStrategy_SelectsCloserEnemyWhenHpIsEqual()
+        {
+            ITargetingStrategy strategy = new LowestHealthStrategy();
+            Vector2 towerPos = Vector2.zero;
+            float range = 5f;
+
+            // Cả hai cùng 20 máu và đều trong tầm. Cho con xa vào danh sách trước.
+            MockEnemy farEnemy = new MockEnemy(20, new Vector3(3f, 0f, 0f));
+            MockEnemy nearEnemy = new MockEnemy(20, new Vector3(2f, 0f, 0f));
+            var candidates = new List<IDamageable> { farEnemy, nearEnemy };
+
+            IDamageable selected = strategy.SelectTarget(towerPos, range, candidates);
+
+            // Chiến lược phải đổi từ con xa sang con gần.
+            Assert.AreSame(nearEnemy, selected);
+        }
     }
 }
