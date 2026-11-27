@@ -29,9 +29,10 @@ namespace TowerDefense.Core
         {
             if (candidates == null || candidates.Count == 0) return null;
 
-            IDamageable bestTarget = null;
-            int minHp = int.MaxValue;
-
+            IDamageable bestTarget = null;// Con quái đang được chọn.
+            int minHp = int.MaxValue;// Máu của con đang được chọn.
+            float bestDistance = float.MaxValue; // Khoảng cách từ tháp đến con đó.
+            
             for (int i = 0; i < candidates.Count; i++)
             {
                 IDamageable candidate = candidates[i];
@@ -41,10 +42,14 @@ namespace TowerDefense.Core
                 if (distance > attackRange) continue;
 
                 int hp = candidate.GetCurrentHealth();
-                if (hp < minHp)
+
+                // Đổi mục tiêu nếu con này ít máu hơn,
+                // hoặc nếu nó bằng máu với mục tiêu hiện tại nhưng ở gần tháp hơn.
+                if (hp < minHp || (hp == minHp && distance < bestDistance))
                 {
-                    minHp = hp;
                     bestTarget = candidate;
+                    minHp = hp;
+                    bestDistance = distance;
                 }
             }
 
