@@ -89,6 +89,7 @@ namespace TowerDefense.Domain.Battle
         {
             if (isGameOver || isGameWon) return;
             isGameOver = true;
+            if (enemySpawner != null) enemySpawner.StopWaves();
             CombatRegistry.IsInputLocked = true;
             Time.timeScale = 0f;
             SaveBestWaveSafely(statistics.HighestWaveReached);

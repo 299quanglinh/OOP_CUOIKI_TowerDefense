@@ -52,6 +52,11 @@ namespace TowerDefense.Domain.Battle
         // UC06_P
         public void StartNextWave()
         {
+            if (enemyPrefab == null)
+            {
+                Debug.LogError("[EnemySpawner] Chưa gán Enemy Prefab, hủy kích hoạt Wave!");
+                return;
+            }
             if (isWaveRunning || allWavesCompleted) return;
             if (waypoints == null || waypoints.Length == 0)
             {
@@ -108,6 +113,7 @@ namespace TowerDefense.Domain.Battle
             }
         }
 
+        // Sinh quái lần lượt
         private void SpawnSingleEnemy(WaveConfig config)
         {
             if (enemyPrefab == null || waypoints == null || waypoints.Length == 0) return;
@@ -118,6 +124,14 @@ namespace TowerDefense.Domain.Battle
             {
                 health.Configure(config.EnemyHealth, config.RewardGold);
             }
+        }
+
+        // Dừng sinh quái để không bị lỗi khi thua rồi nhưng vẫn chuyển đợt
+        public void StopWaves()
+        {
+            StopAllCoroutines();
+            isWaveRunning = false;
+            isSpawning = false;
         }
     }
 }

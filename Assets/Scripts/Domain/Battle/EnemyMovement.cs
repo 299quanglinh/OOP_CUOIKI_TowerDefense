@@ -15,6 +15,7 @@ namespace TowerDefense.Domain.Battle
         private Transform[] waypoints; // Danh sách các waypoints
         private int waypointIndex;
         private float originalSpeed; // Lưu tốc độ trước khi bị làm chậm
+        private Color originalColor; // Lưu màu gốc trước khi bị làm chậm
         private Coroutine slowCoroutine;
         private SpriteRenderer spriteRenderer; // dùng đổi màu khi quái bị làm chậm
 
@@ -22,6 +23,7 @@ namespace TowerDefense.Domain.Battle
         {
             originalSpeed = moveSpeed;
             spriteRenderer = GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null) originalColor = spriteRenderer.color;
         }
 
         public void Initialize(Transform[] route)
@@ -46,7 +48,7 @@ namespace TowerDefense.Domain.Battle
             yield return new WaitForSeconds(duration);
 
             moveSpeed = originalSpeed;
-            if (spriteRenderer != null) spriteRenderer.color = Color.white;
+            if (spriteRenderer != null) spriteRenderer.color = originalColor;
             slowCoroutine = null;
         }
 
