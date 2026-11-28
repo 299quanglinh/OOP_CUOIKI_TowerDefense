@@ -5,7 +5,7 @@ using TowerDefense.Core;
 
 namespace TowerDefense.Tests.EditMode
 {
-    // Bộ kiểm thử đơn vị phân hệ Trận đấu (Phú phụ trách — UT_05 đến UT_08).
+    // Bộ kiểm thử đơn vị phân hệ Trận đấu (Phú phụ trách — UT_09 đến UT_12).
     public class BattleCoreTests
     {
         // CombatRegistry là lớp static: dọn sạch trạng thái trước mỗi ca để các test không ảnh hưởng nhau.
@@ -15,9 +15,9 @@ namespace TowerDefense.Tests.EditMode
         [TearDown]
         public void TearDown() => CombatRegistry.ClearAll();
 
-        // UT_05: Công thức sinh Wave dự phòng khớp bảng dữ liệu 20 Wave (Wave 1: 5 con/100 HP; Wave 20: 24 con/955 HP).
+        // UT_09: Công thức sinh Wave dự phòng khớp bảng dữ liệu 20 Wave (Wave 1: 5 con/100 HP; Wave 20: 24 con/955 HP).
         [Test]
-        public void UT05_WaveConfig_CreateScaled_MatchesWave1AndWave20()
+        public void UT09_WaveConfig_CreateScaled_MatchesWave1AndWave20()
         {
             WaveConfig w1 = WaveConfig.CreateScaled(1);
             WaveConfig w20 = WaveConfig.CreateScaled(20);
@@ -28,9 +28,9 @@ namespace TowerDefense.Tests.EditMode
             Assert.AreEqual(955, w20.EnemyHealth);
         }
 
-        // UT_06: Observer thống kê đếm đúng số quái diệt, cộng vàng và bỏ qua vàng âm.
+        // UT_10: Observer thống kê đếm đúng số quái diệt, cộng vàng và bỏ qua vàng âm.
         [Test]
-        public void UT06_BattleStatisticsObserver_AccumulatesCorrectly()
+        public void UT10_BattleStatisticsObserver_AccumulatesCorrectly()
         {
             var stats = new BattleStatisticsObserver();
 
@@ -44,9 +44,9 @@ namespace TowerDefense.Tests.EditMode
             Assert.AreEqual(50, stats.TotalGoldEarned);
         }
 
-        // UT_07: CombatRegistry gỡ quái đã chết khỏi danh sách sống và phát OnEnemyKilled đúng số vàng.
+        // UT_11: CombatRegistry gỡ quái đã chết khỏi danh sách sống và phát OnEnemyKilled đúng số vàng.
         [Test]
-        public void UT07_CombatRegistry_NotifiesKilledAndRemovesEnemy()
+        public void UT11_CombatRegistry_NotifiesKilledAndRemovesEnemy()
         {
             var enemy = new MockEnemy(100, Vector3.zero);
             int receivedGold = 0;
@@ -68,9 +68,9 @@ namespace TowerDefense.Tests.EditMode
             Assert.AreEqual(25, receivedGold);
         }
 
-        // UT_08: ClearAll() xóa sạch danh sách tĩnh khi Restart.
+        // UT_12: ClearAll() xóa sạch danh sách tĩnh khi Restart.
         [Test]
-        public void UT08_CombatRegistry_ClearAll_ResetsRegistry()
+        public void UT12_CombatRegistry_ClearAll_ResetsRegistry()
         {
             CombatRegistry.RegisterEnemy(new MockEnemy(100, Vector3.zero));
             CombatRegistry.RegisterEnemy(new MockEnemy(150, Vector3.one));
